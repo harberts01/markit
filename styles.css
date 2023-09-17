@@ -211,14 +211,23 @@ nav {
 }
 
 #get-started{
-  display:flex;
-  gap: 62px;
-  height: 51px;
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  flex-wrap: nowrap;
+  height: 114px;
+  padding-left: 110px;
 }
 
-#get-started > p {
-  padding: 0px 0px 0px 137px;
-  width: 282px;
+#get-started > .col {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  gap: 22px;
+}
+
+#get-started > .col p {
+  width: 252px;
   color: var(--Off-White, #F0F0F0);
   text-align: center;
   font-family: Roboto;
@@ -229,21 +238,25 @@ nav {
   letter-spacing: 0.159px;
 }
 
-#get-started > button{
+#get-started-btn{
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 17px;
   width: 222px;
+  height: 56px;
   background-color: #B20000;
   color: #ffe5e5;
   border: none;
+  margin-bottom: 10px;
 }
 
 #app-logo{
-  width: 80px;
-  height: 70px;
+  width: 100px;
+  height: 90px;
 }
+
+
 
 
 
