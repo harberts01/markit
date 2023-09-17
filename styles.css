@@ -1,18 +1,14 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
 
 nav {
-  width: 100vw;
   height: 80px;
-  padding: 0px !important;
-  margin: 0px; !important;
 }
 
 #nav-logo {
   height: 64px;
-}
-
-
-.navbar-brand {
-  margin-right: 50px;
 }
 
 .nav-item {
@@ -70,42 +66,26 @@ nav {
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
-    line-height: 20px; /* 142.857% */
+    line-height: 20px; /* 142.857 */
     letter-spacing: 0.1px;
 }
 
-#login-txt{
-    display: flex;
-    width: 127.297px;
-    height: 34.836px;
-    flex-direction: column;
-    justify-content: center;
-    flex-shrink: 0;
-    color: #000;
-    text-align: center;
 
-  /* M3/label/large */
-    font-family: Roboto;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 20px; /* 142.857% */
-    letter-spacing: 0.1px;
+#home-bg{
+  padding: 0px;
+  width: 100%;
 }
 
+#home-highlights-bg{
+  padding: 0px;
+  width: 100%;
+}
 
 #highlights-container{
-  position: absolute;
-  z-index:100;
-  margin-top: 80px;
-  height: 940px;
-}
-
-#highlights-container > .col {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 22px;
+  position: absolute;
+  z-index: 100;
+  flex-direction: row;
 }
 
 .col-title{
@@ -135,6 +115,10 @@ nav {
   height: 940px;
 }
 
+#discover-bg{
+  width: 100%;
+  padding: 0px;
+}
 #discover-app-preview{
   position: absolute;
   width: 353.985px;
@@ -211,34 +195,15 @@ nav {
 }
 
 #get-started{
+  position: absolute;
   display: flex;
   flex-direction: row;
-  align-items: start;
-  flex-wrap: nowrap;
-  height: 114px;
-  padding-left: 110px;
-}
-
-#get-started > .col {
-  display: flex;
-  flex-direction: row;
-  align-items: start;
-  gap: 22px;
-}
-
-#get-started > .col p {
-  width: 252px;
-  color: var(--Off-White, #F0F0F0);
-  text-align: center;
-  font-family: Roboto;
-  font-size: 16.923px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 25.385px; /* 150% */
-  letter-spacing: 0.159px;
+  justify-content: space-between;
+  align-items: center; 
 }
 
 #get-started-btn{
+  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -248,13 +213,21 @@ nav {
   background-color: #B20000;
   color: #ffe5e5;
   border: none;
-  margin-bottom: 10px;
-}
+  
+} 
+
 
 #app-logo{
   width: 100px;
   height: 90px;
 }
+
+footer{
+  position: absolute;
+}
+
+
+
 
 
 
