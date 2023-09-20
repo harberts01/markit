@@ -1,7 +1,4 @@
-*{
-  margin: 0px;
-  padding: 0px;
-}
+/*1250px media query width*/
 
 nav {
   height: 80px;
@@ -16,8 +13,9 @@ nav {
   color: #000;
   text-align: center;
 
-/* M3/label/large */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  /* M3/label/large */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -25,17 +23,17 @@ nav {
   letter-spacing: 0.1px;
 }
 
-#nav-btn{
+#nav-btn {
   width: 145px;
   height: 50px;
   flex-shrink: 0;
   border-radius: 8px;
-  background:#FFE5E5;
+  background: #ffe5e5;
   border: none;
   color: #000;
 }
 
-#nav-btn-txt{
+#nav-btn-txt {
   display: flex;
   width: 127.297px;
   height: 34.836px;
@@ -55,51 +53,67 @@ nav {
 }
 
 #nav-login {
-    width: 145px;
-    height: 50px;
-    flex-shrink: 0;
-    background: transparent;
-    border-radius: 8px;
-    border: none;
-    color: #000;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 20px; /* 142.857 */
-    letter-spacing: 0.1px;
+  width: 145px;
+  height: 50px;
+  flex-shrink: 0;
+  background: transparent;
+  border-radius: 8px;
+  border: none;
+  color: #000;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 142.857 */
+  letter-spacing: 0.1px;
 }
 
-
-#home-bg{
+#home-bg {
   padding: 0px;
   width: 100%;
 }
 
-#home-highlights-bg{
+#home-highlights-bg {
   padding: 0px;
   width: 100%;
 }
 
-#highlights-container{
+#highlights-container {
   display: flex;
-  position: absolute;
-  z-index: 100;
-  flex-direction: row;
+  position: relative;
+  justify-content: center;
 }
 
-.col-title{
+#highlight-row {
+  display: inline-flex;
+  justify-content: center;
+  position: absolute;
+  align-items: flex-start;
+  gap: 39px;
+  max-width: 1440px;
+  margin-top: 1rem;
+}
+
+#highlight-row > .col {
+  max-height: 328px;
+}
+
+.col-title {
   text-align: center;
   font-family: Roboto;
   font-size: 39.595px;
   font-style: normal;
   font-weight: 400;
   margin-bottom: 22px;
+  margin-top: 10%;
 }
 
-.col-text{
-  width: 250px;
+.col-text {
+  display: flex;
+  justify-content: center;
   text-align: center;
+  padding: 0rem 5rem 0rem 5rem;
   color: #000;
   word-wrap: normal;
   font-family: Roboto;
@@ -110,29 +124,35 @@ nav {
   letter-spacing: 0.141px;
 }
 
-#discover-container{
+/*DISCOVER ROW STARTS */
+
+#discover-row {
   display: flex;
   height: 940px;
 }
 
-#discover-bg{
+#discover-bg {
   width: 100%;
   padding: 0px;
 }
-#discover-app-preview{
+
+.discover-container {
+  display: inline-flex;
+  max-width: 1440px;
   position: absolute;
+}
+#discover-app-preview {
   width: 353.985px;
   height: 758.18px;
   padding: 65px 98px 116px 186px;
 }
 
-#discover-header{
-  position: absolute;
+#discover-header {
   display: flex;
   flex-direction: column;
   justify-content: end;
   padding: 230px 87px 547px 638px;
-  color: #F0F0F0;
+  color: #f0f0f0;
 }
 
 #discover-header > h1 {
@@ -153,27 +173,26 @@ nav {
   letter-spacing: 0.5px;
 }
 
-
 /*SEAMLESS EXPERIENCE*/
-#experience-container{
+#experience-container {
   display: flex;
   height: 940px;
 }
 
-#experience-app-preview{
+#experience-app-preview {
   position: absolute;
   width: 353.985px;
   height: 758.18px;
   padding: 65px 156px 104px 930px;
 }
 
-#experience-header{
+#experience-header {
   position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: end;
   padding: 255px 684px 255px 156px;
-  color: #F0F0F0;
+  color: #f0f0f0;
 }
 
 #experience-header > h1 {
@@ -194,44 +213,31 @@ nav {
   letter-spacing: 0.5px;
 }
 
-#get-started{
+#get-started {
   position: absolute;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center; 
+  align-items: center;
 }
 
-#get-started-btn{
-  
+#get-started-btn {
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 17px;
   width: 222px;
   height: 56px;
-  background-color: #B20000;
+  background-color: #b20000;
   color: #ffe5e5;
   border: none;
-  
-} 
+}
 
-
-#app-logo{
+#app-logo {
   width: 100px;
   height: 90px;
 }
 
-footer{
+footer {
   position: absolute;
 }
-
-
-
-
-
-
-
-
-
-
