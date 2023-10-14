@@ -94,16 +94,12 @@ export function homePage() {
             informed decisions, maximize sales, and minimize waste.
           </p>
         </div>
-      </div>
+        
+    <p id="partner-text">Ready to partner with Markit to enhance your farmer's market?</p>
+    <button id="get-started-btn">Get Started Now</button>
+</div>
 
-      <div id="get-started">
-          
-            <div id="get-started-text">
-            <p>Ready to partner with Markit to enhance your farmer's market?</p>
-            <button id="get-started-btn">Get Started Now</button>
-          </div>
-      </div>
-      
+     
     
-  </main>;`;
+  </main>`;
 }
