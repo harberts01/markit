@@ -220,6 +220,7 @@ nav {
 
 
 #get-started {
+  position: absolute;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -227,6 +228,7 @@ nav {
 }
 
 #get-started-btn {
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
