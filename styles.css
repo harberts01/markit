@@ -1,6 +1,5 @@
 /*1250px media query width*/
 
-
 /*NAVBAR*/
 nav {
   height: 80px;
@@ -68,23 +67,17 @@ nav {
 }
 
 /*END NAVBAR*/
-#home-bg {
-
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  width: 100vw;
+#section-bg {
   position: relative;
+  background-repeat: no-repeat;
+  width: 100%;
 }
 
 #highlights-container {
   display: flex;
-  position: relative;
   justify-content: center;
+  height: 940px;
 }
-
-
-
 
 #highlight-row {
   display: inline-flex;
@@ -127,33 +120,31 @@ nav {
 
 /*DISCOVER ROW STARTS */
 
-#discover-row {
+#section1-container {
   display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
   height: 940px;
 }
 
-
-#discover-container {
-  display: inline-flex;
-  justify-content: start;
+#section1-app-preview {
   position: absolute;
-
+  width: 353.985px;
+  height: 758.18px;
+  flex-shrink: 0;
+  margin: 65px 900px 117px 186px;
 }
 
-#discover-app-preview {
-  padding: 65px 0px 116px 186px;
+#section1-text {
   position: absolute;
-}
-
-#discover-header {
-  display: flex;
   flex-direction: column;
   justify-content: end;
-  padding: 230px 87px 547px 638px;
+  margin: 230px 87px 281px 638px;
   color: #f0f0f0;
 }
 
-#discover-header > h1 {
+#section1-text > h1 {
   font-family: Righteous;
   font-size: 65px;
   font-style: normal;
@@ -162,7 +153,7 @@ nav {
   flex-shrink: 0;
 }
 
-#discover-header > p {
+#section1-text > p {
   width: 600px;
   font-family: Roboto;
   font-size: 16px;
@@ -173,33 +164,24 @@ nav {
 }
 
 /*SEAMLESS EXPERIENCE*/
-#experience-row {
-  display: flex;
-  height: 940px;
-}
 
-
-#experience-container {
-  display: inline-flex;
-  justify-content: end;
+#section2-app-preview {
   position: absolute;
+  width: 353.985px;
+  height: 758.18px;
+  flex-shrink: 0;
+  margin: 75px 156px 104px 930px;
 }
 
-#experience-app-preview {
+#section2-text {
   position: absolute;
-  padding: 75px 106px 154px 0px;
- 
-}
-
-#experience-header {
-  display: flex;
   flex-direction: column;
   justify-content: start;
-  padding: 206px 676px 206px 156px;
+  margin: 322px 684px 255px 156px;
   color: #f0f0f0;
 }
 
-#experience-header > h1 {
+#section2-text > h1 {
   font-family: Righteous;
   font-size: 65px;
   font-style: normal;
@@ -208,7 +190,7 @@ nav {
   flex-shrink: 0;
 }
 
-#experience-header > p {
+#section2-text > p {
   width: 600px;
   font-family: Roboto;
   font-size: 16px;
@@ -218,13 +200,36 @@ nav {
   letter-spacing: 0.5px;
 }
 
+#section3-container {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 1065px;
+}
 
 #get-started {
+  margin: 881px 0px 58px 0px;
+}
+
+#get-started-text {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 62.404px;
+  width: 567px;
+  margin: 35px 736px 34px 137px;
+}
+
+#get-started p {
   position: absolute;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  width: 282px;
+  color: var(--Off-White, #f0f0f0);
+  font-family: Roboto;
+  font-size: 16.923px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 25.385px; /* 150% */
+  letter-spacing: 0.159px;
 }
 
 #get-started-btn {
@@ -244,6 +249,6 @@ nav {
   width: 100px;
   height: 90px;
 }
-footer{
+footer {
   display: block;
 }

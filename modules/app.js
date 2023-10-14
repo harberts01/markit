@@ -1,6 +1,7 @@
 import { navBar } from './nav.js';
 import { homePage } from './homePage.js';
 
+
 const appContainer = document.querySelector('.app')
 
 const renderHomePage = () => {
