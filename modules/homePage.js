@@ -1,6 +1,12 @@
-export function homePage() {
+import { navBar } from "./nav.js";
+import { footer } from "./footer.js";
 
-  let html=`<main>
+export function homePage() {
+ 
+
+  let html=`
+  ${navBar()}
+  <main>
   <img id="section-bg" src="Assests/home_bg.png" />
 
   <div id="highlights-container">
@@ -104,8 +110,9 @@ export function homePage() {
 
    
   
-</main>`;
+</main>
+${footer()}`;
+return html;
 
-  return html
-  ;
+
 }

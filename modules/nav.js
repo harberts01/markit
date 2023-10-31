@@ -1,4 +1,7 @@
+// Purpose: Contains the HTML for the navigation bar
+
 export function navBar() {
+
   let html = `<!-- Navbar -->
   <nav class="navbar navbar-expand-lg" style="background-color: #fff5f5">
     <div class="container-fluid">
@@ -8,13 +11,13 @@ export function navBar() {
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#highlights-container">About</a>
+            <a class="nav-link" aria-current="page" href="#highlights-container" id="about-link">About</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#section1-container">Features</a>
           </li>
           <li class="nav-item">
-            <a id="find-your-market" class="nav-link" href="#">Find Your Market</a>
+            <a id="find-your-market" class="nav-link">Find Your Market</a>
           </li>
         </ul>
         <form class="d-flex">
@@ -28,5 +31,6 @@ export function navBar() {
       </div>
     </div>
   </nav>`;
-  return html ;
+
+  return html;
 }
