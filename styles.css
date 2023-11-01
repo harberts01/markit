@@ -299,3 +299,56 @@ footer {
   position: inherit;
   margin-left: 400px;
 }
+
+#offcanvasExample{
+  width: 328px;
+  height: 152px;
+  border-radius: 0px 0px 8px 8px;
+  background: rgba(255, 229, 229, 0.70);
+  backdrop-filter: blur(2px);
+  margin: 0px 0px 0px 512px;
+}
+
+.form-control {
+  display: flex;
+  background-color: transparent !important;
+  border: none !important;
+
+}
+
+.offcanvas-header{
+  display: flex;
+  justify-content: start !important;
+  background-color: #FFE5E5;
+  border-radius: 0px 0px 20px 20px;
+}
+
+.input-box{
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 2px 60px 0px 4px !important;
+  
+}
+.fa-bars{
+  display: flex;
+  color: #717171;
+  margin-top: 2px !important;
+}
+
+.fa-search{
+  display: flex;
+  color: #717171;
+  margin-top: 2px !important;
+
+}
+
+.fym-default-text{
+  color: var(--Almost-Black, #171717);
+  text-align: center;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+}
