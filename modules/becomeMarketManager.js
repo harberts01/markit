@@ -14,9 +14,24 @@ export function becomeMarketManager(){
                     <div class="row">
                         <div class="card-header">
                             <h2>Why Partner with Markit?</h2>
+                        </div>
                         <div class="card-body">
                             <div class="card-title">
                                 <h3>Enhanced Markit Promotion</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="card-body">
+                            <div class="card-title">
+                                <h3>Sustainability and Community Support</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="card-body">
+                            <div class="card-title">
+                                <h3>Increased Vendor Engagement</h3>
                             </div>
                         </div>
                     </div>

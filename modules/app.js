@@ -19,7 +19,7 @@ const renderBecomeMarketManager = () => {
     const html = `${becomeMarketManager()}`;
     appContainer.insertAdjacentHTML("afterbegin", html);
     appContainer.style.opacity = 1;
-    isRenderBecomeMarketManager = true;
+    
 
 };
 
@@ -29,10 +29,13 @@ becomeMarketManagerBtn.addEventListener("click", () => {
     setTimeout(() => {
       appContainer.innerHTML = "";
       renderBecomeMarketManager();
-    }, 100)
-  })
+    }, 500)
+    isRenderHomePage = false;
+    isRenderBecomeMarketManager = true;
+  });
 
 
 
 
 console.log(isRenderHomePage);
+console.log(isRenderBecomeMarketManager);

@@ -16,8 +16,6 @@ export function findYourMarket(){
     </div>
   </div>
 </div>`
-    
- console.log(html);
    return html;
 
 };
