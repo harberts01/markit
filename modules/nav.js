@@ -1,4 +1,5 @@
 // Purpose: Contains the HTML for the navigation bar
+import { findYourMarket } from './findYourMarket.js';
 
 export function navBar() {
 
@@ -17,7 +18,7 @@ export function navBar() {
             <a class="nav-link" href="#section1-container">Features</a>
           </li>
           <li class="nav-item">
-            <a id="find-your-market" class="nav-link">Find Your Market</a>
+            <a id="find-your-market" class="nav-link" data-bs-toggle="offcanvas" href="#offcanvasExample" type="button" aria-controls="offcanvasExample">Find Your Market</a>
           </li>
         </ul>
         <form class="d-flex">
@@ -30,7 +31,11 @@ export function navBar() {
         </form>
       </div>
     </div>
-  </nav>`;
+  </nav>
+  
+  ${findYourMarket()}
+
+  `;
 
   return html;
 }
