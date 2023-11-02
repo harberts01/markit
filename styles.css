@@ -352,3 +352,69 @@ footer {
   line-height: 24px;
   letter-spacing: 0.5px;
 }
+
+.card{
+  border: none !important;
+  height: 706px;
+  width: 325px;
+}
+
+h3{
+  
+  width: 250px;
+  font-family: Roboto;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+#mm-card-header{
+  background-color: #FFE5E5;
+  border: none !important;
+}
+
+.card-body{
+  display: flex;
+  align-items: end;
+  flex-direction: column;
+  background-color: #FFF5F5;
+  border: none !important;
+}
+
+.card-text{
+  width: 350px;
+}
+
+#become-market-manager{
+  height: 575px;
+ 
+}
+
+.input-wrapper {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+input {
+  border: 1px solid gray;
+  border-radius: 6px;
+  position: relative;
+  width: 736px;
+  height: 56px;
+  margin: 10px;
+  line-height: 6px;
+}
+
+label {
+  position: absolute;
+  top: -0.7em;
+  z-index: 1;
+  left: 2em;
+  background-color: white;
+  padding: 0 5px;
+}
+
+footer{
+  background-color: #FFF5F5;
+}
