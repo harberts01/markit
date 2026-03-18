@@ -1,0 +1,208 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+# Cancel in-flight runs for the same branch on new push
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+
+  # ── Server: typecheck + test ───────────────────────────────────────────────
+  server-ci:
+    name: Server (typecheck + test)
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: markit_test
+          POSTGRES_USER: markit_user
+          POSTGRES_PASSWORD: test_password
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U markit_user -d markit_test"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    defaults:
+      run:
+        working-directory: server
+
+    env:
+      DATABASE_URL: postgresql://markit_user:test_password@localhost:5432/markit_test
+      JWT_SECRET: ci-test-jwt-secret-not-used-in-production
+      JWT_REFRESH_SECRET: ci-test-refresh-secret-not-used-in-production
+      PORT: 3001
+      CORS_ORIGIN: http://localhost:3000
+      NODE_ENV: test
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: server/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci --frozen-lockfile
+
+      - name: Typecheck
+        run: npx tsc --noEmit
+
+      - name: Run migrations
+        run: npm run migrate
+
+      - name: Run tests
+        run: npm test -- --reporter=verbose
+
+      - name: Build (validate production compile)
+        run: npm run build
+
+  # ── Web: typecheck + lint + test + build ──────────────────────────────────
+  web-ci:
+    name: Web (typecheck + test + build)
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: web
+
+    env:
+      NEXT_PUBLIC_API_URL: http://localhost:3001/api/v1
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci --frozen-lockfile
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Run unit tests
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        if: github.ref == 'refs/heads/main'
+        with:
+          name: web-build
+          path: web/.next/
+          retention-days: 7
+
+  # ── E2E: Playwright (runs only when both services built successfully) ───────
+  e2e:
+    name: E2E (Playwright)
+    runs-on: ubuntu-latest
+    needs: [server-ci, web-ci]
+    # Only run E2E on main branch and PRs targeting main to save CI minutes
+    if: |
+      github.ref == 'refs/heads/main' ||
+      (github.event_name == 'pull_request' && github.base_ref == 'main')
+
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: markit_e2e
+          POSTGRES_USER: markit_user
+          POSTGRES_PASSWORD: test_password
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U markit_user -d markit_e2e"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      DATABASE_URL: postgresql://markit_user:test_password@localhost:5432/markit_e2e
+      JWT_SECRET: ci-e2e-jwt-secret
+      JWT_REFRESH_SECRET: ci-e2e-refresh-secret
+      PORT: 3001
+      CORS_ORIGIN: http://localhost:3000
+      NODE_ENV: test
+      NEXT_PUBLIC_API_URL: http://localhost:3001/api/v1
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: |
+            server/package-lock.json
+            web/package-lock.json
+
+      - name: Install server deps
+        run: npm ci --frozen-lockfile
+        working-directory: server
+
+      - name: Install web deps
+        run: npm ci --frozen-lockfile
+        working-directory: web
+
+      - name: Run DB migrations
+        run: npm run migrate
+        working-directory: server
+
+      - name: Seed test data
+        run: npm run seed
+        working-directory: server
+
+      - name: Start API server (background)
+        run: npm run dev &
+        working-directory: server
+
+      - name: Wait for API to be ready
+        run: |
+          for i in $(seq 1 30); do
+            curl -sf http://localhost:3001/api/health && break
+            echo "Waiting for API... ($i/30)"
+            sleep 2
+          done
+
+      - name: Build web
+        run: npm run build
+        working-directory: web
+
+      - name: Start web server (background)
+        run: npm start &
+        working-directory: web
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+        working-directory: web
+
+      - name: Run Playwright E2E tests
+        run: npm run e2e
+        working-directory: web
+
+      - name: Upload Playwright report
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-report
+          path: web/playwright-report/
+          retention-days: 7

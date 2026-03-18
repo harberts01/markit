@@ -1,0 +1,44 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# MarkIt root .gitignore
+# ──────────────────────────────────────────────────────────────────────────────
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Environment files — NEVER commit real secrets
+.env
+.env.local
+.env.*.local
+
+# Node
+node_modules/
+
+# Uploaded files (store in S3 in production)
+server/uploads/*
+!server/uploads/.gitkeep
+
+# Build artifacts
+server/dist/
+web/.next/
+web/out/
+
+# Test artifacts
+coverage/
+playwright-report/
+test-results/
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Misc
+*.pem
+.vercel

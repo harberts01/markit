@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tail:*)",
+      "Bash(cd /c/Users/phili/OneDrive/Documents/markit/server && npm run generate 2>&1)",
+      "Bash(cd /c/Users/phili/OneDrive/Documents/markit/server && npm run migrate 2>&1)",
+      "Bash(cd /c/Users/phili/OneDrive/Documents/markit/server && npx tsc --noEmit 2>&1)",
+      "Bash(ls:*)"
+    ]
+  }
+}
